@@ -20,6 +20,8 @@ gem 'thin'
 
 gem 'carrierwave', '~> 0.10.0'
 
+gem 'rails_12factor', '~> 0.0.3'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

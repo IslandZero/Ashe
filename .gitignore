@@ -18,3 +18,5 @@
 
 # Ignore IPAs
 *.ipa
+
+.DS_Store

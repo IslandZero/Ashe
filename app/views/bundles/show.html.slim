@@ -1,2 +1,17 @@
-h1 Bundles#show
-p Find me in app/views/bundles/show.html.slim
+.page-header
+  h1
+    = @bundle.name
+    small
+      | &nbsp;&nbsp;
+      = @bundle.identifier
+hr
+
+.row
+  .col-md-6
+    .panel.panel-default
+      .list-group
+        - @bundle.builds.order(:id, "DESC").each do |build|
+          a.list-group-item href=build_path(build)
+            h4.list-group-item-heading="#{build.version} (Build #{build.build})"
+            p.list-group-item-text= build.desc
+            p.text-right.text-muted=time_ago_in_words(build.updated_at)

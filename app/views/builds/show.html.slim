@@ -1,3 +1,15 @@
-h1 Builds#show
-p Find me in app/views/builds/show.html.slim
-= link_to 'Install', ipa_install_url(@build)
+.page-header
+  h1
+    a href=bundle_path(@build.bundle)
+      = @build.bundle.name
+    small
+      | &nbsp;&nbsp;
+      = @build.bundle.identifier
+  h2= "#{@build.version} (Build #{@build.build})"
+  - @build.desc.to_s.each_line do |line|
+    h3= line
+hr
+
+.row
+  .col-md-12.text-center
+    = link_to 'Click to install', ipa_install_url(@build), class: 'btn btn-success btn-lg'

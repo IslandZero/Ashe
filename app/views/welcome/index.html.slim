@@ -1,5 +1,17 @@
-.row
-  .col-md-12
-    h2 Welcome to Ashe AdHoc Center
-    h3.text-danger This site is for demo only, all data could be purged at any time.
+.page-header
+  h2 Welcome to Ashe AdHoc Center
+  h3.text-danger This site is for demo only, all data could be purged at any time.
 hr
+
+- Bundle.find_each do |bundle|
+  .row
+    .col-md-12
+      .jumbotron
+        h2
+          = bundle.name
+          small
+            = "  (#{bundle.builds.count.to_s} builds)"
+        h3= bundle.identifier
+        br
+        p
+          a.btn.btn-success href=bundle_path(bundle) Click to view
