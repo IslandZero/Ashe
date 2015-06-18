@@ -1,3 +1,5 @@
+require 'uri'
+
 require 'zip'
 require 'cfpropertylist'
 
@@ -30,5 +32,6 @@ class BuildsController < ApplicationController
 
   def show
     @build = Build.find(params[:id])
+    @build_file_url = URI.join(request.url, @build.file_url).to_s
   end
 end
