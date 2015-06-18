@@ -8,8 +8,11 @@ html
     =csrf_meta_tags
   body
     nav.navbar.navbar-default.navbar-fixed-top
-      .navbar-header
-        a.navbar-brand href=root_path Ashe
+      .container-fluild
+        .navbar-header
+          a.navbar-brand href=root_path Ashe
+          ul.nav.navbar-nav
+            = li_link "Upload", new_build_path
     - if flash.alert
       .container
         .row

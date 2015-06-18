@@ -4,6 +4,10 @@ require 'zip'
 require 'cfpropertylist'
 
 class BuildsController < ApplicationController
+
+  def new
+  end
+
   def create
     form_params = params.require(:build).permit(:file, :desc)
     file = form_params[:file]
@@ -24,7 +28,7 @@ class BuildsController < ApplicationController
     end
 
     if !@build
-      redirect_to root_path, alert: 'Cannot create this build'
+      redirect_to new_build_path, alert: 'Cannot create this build'
     else
       redirect_to action: :show, id: @build.id
     end
