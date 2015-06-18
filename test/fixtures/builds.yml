@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  version: MyString
+  build: MyString
+  file: MyString
+  desc: MyString
+  bundle_id: 
+
+two:
+  version: MyString
+  build: MyString
+  file: MyString
+  desc: MyString
+  bundle_id: 

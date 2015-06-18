@@ -1,0 +1,6 @@
+h1 Welcome#index
+p Find me in app/views/welcome/index.html.slim
+= form_for Build.new do |f|
+  = f.text_field :desc
+  = f.file_field :file
+  = f.submit
