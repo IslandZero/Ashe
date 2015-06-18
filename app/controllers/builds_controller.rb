@@ -24,7 +24,7 @@ class BuildsController < ApplicationController
     end
 
     if !@build
-      redirect_to 'welcome#index', error: 'Cannot create this build'
+      redirect_to root_path, alert: 'Cannot create this build'
     else
       redirect_to action: :show, id: @build.id
     end

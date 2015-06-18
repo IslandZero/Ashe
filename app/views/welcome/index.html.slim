@@ -1,6 +1,19 @@
-h1 Welcome#index
-p Find me in app/views/welcome/index.html.slim
-= form_for Build.new do |f|
-  = f.text_field :desc
-  = f.file_field :file
-  = f.submit
+.row
+  .col-md-12
+    .jumbotron
+      h2 Welcome to Ashe AdHoc Center
+      h3.text-danger This site is for demo only, all data could be purged at any time.
+      .row
+        .col-md-6.col-md-offset-3
+          .panel.panel-primary.upload-panel
+            .panel-heading.text-center Upload a ipa file for AdHoc
+            .panel-body
+              = form_for Build.new do |f|
+                .form-group
+                  label File
+                  = f.file_field(:file, class: 'form-control')
+                .form-group
+                  label Description
+                  = f.text_area(:desc, class: 'form-control')
+                .form-group.text-center
+                  = f.submit('Submit', class: 'btn btn-success')
