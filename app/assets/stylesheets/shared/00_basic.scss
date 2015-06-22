@@ -1,3 +1,8 @@
 body {
   padding-top: 70px;
 }
+
+html.turbolinks-progress-bar::before {
+  background-color: #0ce3ac !important;
+  height: 2px !important;
+}
