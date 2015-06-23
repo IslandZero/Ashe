@@ -9,5 +9,6 @@ class WelcomeController < ApplicationController
   end
 
   def udid_callback
+    post_data = request.raw_post.to_s
   end
 end
