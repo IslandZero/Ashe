@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618152202) do
+ActiveRecord::Schema.define(version: 20150623093301) do
 
   create_table "builds", force: :cascade do |t|
     t.integer  "bundle_id"
@@ -36,5 +36,17 @@ ActiveRecord::Schema.define(version: 20150618152202) do
   end
 
   add_index "bundles", ["identifier"], name: "index_bundles_on_identifier"
+
+  create_table "devices", force: :cascade do |t|
+    t.string   "owner"
+    t.string   "product"
+    t.string   "serial"
+    t.string   "udid",       null: false
+    t.string   "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "devices", ["udid"], name: "index_devices_on_udid"
 
 end

@@ -4,11 +4,4 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def udid
-    @callback_url = udid_callback_url
-  end
-
-  def udid_callback
-    hash = P7sPlist.parse(request.raw_post.to_s)
-  end
 end
