@@ -16,7 +16,7 @@ class DevicesController < ApplicationController
 
   def create
     device = Device.create_from_plist(P7sPlist.parse(request.raw_post.to_s), params[:owner])
-    redirect_to action: :show, id: device.id
+    redirect_to device_path(device), status: 301
   end
 
   def show
