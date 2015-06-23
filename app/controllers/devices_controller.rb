@@ -13,6 +13,11 @@ class DevicesController < ApplicationController
   end
 
   def create
-    @device = Device.create_from_plist(P7sPlist.parse(request.raw_post.to_s), params[:owner])
+    device = Device.create_from_plist(P7sPlist.parse(request.raw_post.to_s), params[:owner])
+    redirect_to action: :show, id: device.id
+  end
+
+  def show
+    @deivce = Device.find params[:id]
   end
 end
