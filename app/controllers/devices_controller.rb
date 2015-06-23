@@ -1,6 +1,13 @@
 class DevicesController < ApplicationController
   def new
-    @callback_url = devices_url(owner: params[:owner])
+  end
+
+  def create_mobileconfig
+    if params[:owner].blank?
+      redirect_to({ action: :new }, { alert: "Please input owner name" })
+    else
+      @callback_url = devices_url(owner: params[:owner])
+    end
   end
 
   def create

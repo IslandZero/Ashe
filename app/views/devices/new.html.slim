@@ -1,8 +1,13 @@
 .page-header
-  h2 Get your UDID
+  h2 Register UDID
 
 hr
 
 .row
-  .col-md-5.text-center
-    = link_to 'Get UDID', udid_path(format: :mobileconfig)
+  .col-md-5
+    = form_tag create_mobileconfig_devices_path(format: :mobileconfig) do
+      .form-group
+        label Owner
+        = text_field_tag :owner, nil, class: 'form-control'
+      .form-group.text-center
+        = submit_tag "Register UDID", class: 'btn btn-success'

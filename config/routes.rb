@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :bundles, only: [:show]
   resources :builds , only: [:new, :create, :show]
-  resources :devices, only: [:new, :create]
+  resources :devices, only: [:new, :create] do
+    post :create_mobileconfig, on: :collection
+  end
 end
