@@ -9,6 +9,6 @@ class WelcomeController < ApplicationController
   end
 
   def udid_callback
-    puts P7sPlist.parse request.raw_post.to_s
+    hash = P7sPlist.parse(request.raw_post.to_s)
   end
 end
