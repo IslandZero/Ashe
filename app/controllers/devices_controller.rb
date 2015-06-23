@@ -20,6 +20,6 @@ class DevicesController < ApplicationController
   end
 
   def show
-    @deivce = Device.find params[:id]
+    @device = Device.find params[:id]
   end
 end
