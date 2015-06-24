@@ -4,6 +4,7 @@ require 'zip'
 require 'cfpropertylist'
 
 class BuildsController < ApplicationController
+  before_action :authenticate_device!,  only: [:show]
 
   def new
   end
@@ -54,5 +55,6 @@ class BuildsController < ApplicationController
   def show
     @build = Build.find(params[:id])
     @build_file_url = URI.join(request.url, @build.file_url).to_s
+    @can_install = Provision.find_by(build_id: @build.id, udid: @current_device.udid).present?
   end
 end
