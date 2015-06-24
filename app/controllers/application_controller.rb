@@ -3,9 +3,19 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_device
 
-  def validate_useragent
-    user_agent = UserAgent.parse(request.user_agent)
-    puts user_agent
+  def validate_useragent!
+    bad = false
+    if request.user_agent.to_s.include?('MicroMessenger')
+      bad = true
+    else
+      ua = UserAgent.parse(request.user_agent)
+      bad_browser = ua.browser != 'Safari'
+      bad_platform= !['iPhone', 'iPad', 'iPod'].include?(ua.platform)
+      bad = bad_browser || bad_platform
+    end
+    if bad
+      render "shared/bad_ua"
+    end
   end
 
   def authenticate_device
