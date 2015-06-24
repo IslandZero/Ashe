@@ -1,17 +1,17 @@
 .page-header
-  h2 Device Registered
+  h2= t 'ashe.device_registered'
 
 hr
 
 .row
   .col-md-6
-    h4 Owner
+    h4= t "ashe.device_meta.owner"
     h5.text-success= @device.owner
-    h4 UDID
+    h4= t "ashe.device_meta.UDID"
     h5.text-success= @device.udid
-    h4 Product
+    h4= t "ashe.device_meta.product"
     h5.text-success= @device.product
-    h4 Version
+    h4= t "ashe.device_meta.version"
     h5.text-success= @device.version
-    h4 Serial
+    h4= t "ashe.device_meta.serial"
     h5.text-success= @device.serial

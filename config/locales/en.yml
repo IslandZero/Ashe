@@ -1,3 +1,14 @@
 en:
   ashe:
     welcome: 'Welcome to Ashe Adhoc Center'
+    click_to_view: 'Click to view'
+    bad_ua:  'Please open this page in iOS Safari'
+    register_device: 'Register Device'
+    owner_name: 'Owner Name'
+    device_registered: 'Device Registered'
+    device_meta:
+      owner: 'Owner'
+      UDID:  'UDID'
+      product: 'Product'
+      version: 'Version'
+      serial:  'Serial'

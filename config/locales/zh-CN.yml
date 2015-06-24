@@ -1,3 +1,14 @@
 zh-CN:
   ashe:
-    welcome: '欢迎使用 Ashe Adhoc 分发中心'
+    welcome: '欢迎使用 Ashe 分发中心'
+    click_to_view: '点击查看'
+    bad_ua:  '请使用 iOS Safari 浏览器打开页面'
+    register_device: '注册设备'
+    owner_name: '设备所有者'
+    device_registered: '设备已注册'
+    device_meta:
+      owner: '所有者'
+      UDID:  'UDID'
+      product: '型号'
+      version: '系统版本'
+      serial:  '序列号'

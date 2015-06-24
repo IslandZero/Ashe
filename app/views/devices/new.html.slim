@@ -1,5 +1,5 @@
 .page-header
-  h2 Register Device
+  h2=t 'ashe.register_device'
 
 hr
 
@@ -7,7 +7,7 @@ hr
   .col-md-5
     = form_tag create_mobileconfig_devices_path(format: :mobileconfig) do
       .form-group
-        label Owner Name
+        label=t 'ashe.owner_name'
         = text_field_tag :owner, nil, class: 'form-control'
       .form-group.text-center
-        = submit_tag "Register Device", class: 'btn btn-success'
+        = submit_tag t("ashe.register_device"), class: 'btn btn-success'
