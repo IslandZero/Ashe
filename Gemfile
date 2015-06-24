@@ -16,6 +16,7 @@ gem 'CFPropertyList'
 gem 'slim'
 gem 'slim-rails', '~> 3.0.1'
 gem 'useragent', '~> 0.14.0'
+gem 'http_accept_language', '~> 2.0.5'
 
 gem 'thin'
 

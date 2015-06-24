@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  before_action :set_locale
   before_action :authenticate_device
 
   def validate_useragent!
@@ -35,5 +36,9 @@ class ApplicationController < ActionController::Base
     if @current_device.nil?
       redirect_to new_device_path, alert: 'Please register your device first !'
     end
+  end
+
+  def set_locale
+    I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
   end
 end
