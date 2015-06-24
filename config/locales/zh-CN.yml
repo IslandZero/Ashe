@@ -26,3 +26,4 @@ zh-CN:
     devices_both: '已知设备'
     devices_missing: '缺失的设备'
     udids_extra: '未知设备'
+    please_register_device: '请进行设备注册'

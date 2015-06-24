@@ -5,7 +5,6 @@ require 'cfpropertylist'
 
 class BuildsController < ApplicationController
   before_action :validate_useragent,    only: [:show]
-  before_action :authenticate_device!,  only: [:show]
   before_action :authenticate_admin!,   only: [:new, :create]
 
   def new
@@ -57,7 +56,7 @@ class BuildsController < ApplicationController
   def show
     @build = Build.find(params[:id])
     @build_file_url = URI.join(request.url, @build.file_url).to_s
-    @can_install = Provision.find_by(build_id: @build.id, udid: @current_device.udid).present?
+    @can_install = @current_device.present? and Provision.find_by(build_id: @build.id, udid: @current_device.udid).present?
 
     if @is_admin
       provisioned_udids = @build.provisions.map { |pv| pv.udid }

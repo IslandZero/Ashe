@@ -26,3 +26,4 @@ en:
     devices_both: 'Kown Devices'
     devices_missing: 'Missing Devices'
     udids_extra: 'Unkown Devices'
+    please_register_device: 'Please register your device'
