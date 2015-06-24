@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623093301) do
+ActiveRecord::Schema.define(version: 20150624070454) do
 
   create_table "builds", force: :cascade do |t|
     t.integer  "bundle_id"
@@ -50,5 +50,15 @@ ActiveRecord::Schema.define(version: 20150623093301) do
 
   add_index "devices", ["token"], name: "index_devices_on_token"
   add_index "devices", ["udid"], name: "index_devices_on_udid"
+
+  create_table "provisions", force: :cascade do |t|
+    t.integer  "build_id"
+    t.string   "udid",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "provisions", ["build_id"], name: "index_provisions_on_build_id"
+  add_index "provisions", ["udid"], name: "index_provisions_on_udid"
 
 end

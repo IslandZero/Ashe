@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  build_id: 
+  udid: MyString
+
+two:
+  build_id: 
+  udid: MyString

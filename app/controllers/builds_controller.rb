@@ -14,7 +14,9 @@ class BuildsController < ApplicationController
     desc = form_params[:desc]
 
     if file
+      # Open zip file
       Zip::File.open(file.path) do |zip_file|
+        # Get Info.plist and create build
         plist_entry = zip_file.glob("**/*.app/Info.plist").first
         if plist_entry
           plist = CFPropertyList::List.new({ data: plist_entry.get_input_stream.read.to_s,
@@ -23,6 +25,21 @@ class BuildsController < ApplicationController
           @build.file = file
           @build.desc = desc
           @build.save
+        end
+        # Get embedded.mobileprovision and record provisioned devices
+        if @build
+          provi_entry = zip_file.glob("**/*.app/embedded.mobileprovision").first
+          if provi_entry
+            provi = P7sPlist.parse provi_entry.get_input_stream.read.to_s
+            if provi 
+              devices = provi['ProvisionedDevices']
+              if devices.kind_of? Array
+                devices.each do |device_udid|
+                  @build.provisions.create(udid: device_udid)
+                end
+              end
+            end
+          end
         end
       end
     end
