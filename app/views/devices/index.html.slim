@@ -10,10 +10,12 @@ hr
         td Id
         td Owner
         td UDID
+        td Product
         td UpdatedAt
       - @devices.each do |d|
         tr
           td= d.id
           td= d.owner
           td= d.udid
+          td= d.product
           td= time_ago_in_words d.updated_at
