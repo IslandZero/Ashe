@@ -19,6 +19,7 @@ html
         .collapse.navbar-collapse#main-navbar
           ul.nav.navbar-nav
             - if @is_admin
+              = li_link t('ashe.admin'), admin_path
               = li_link t('ashe.upload'), new_build_path
               = li_link t('ashe.all_devices'), devices_path
             - if @current_device

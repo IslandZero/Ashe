@@ -1,12 +1,12 @@
 .page-header
-  h2 Enable Admin
+  h2 Enable/Disable Admin
 
 hr
 
 .row
   .col-md-6
     - if @is_admin
-      = link_to 'Disable', admin_disable_path, class: 'btn btn-success', method: 'post'
+      = link_to 'Disable', admin_disable_path, class: 'btn btn-danger', method: 'post'
     - else
       = form_tag admin_enable_path do
         .form-group
