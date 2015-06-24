@@ -19,3 +19,4 @@ en:
     description: 'Description'
     click_to_install: 'Click to install'
     no_provision: 'Cannot install, no suitable provision file'
+    please_register_device: 'Please register your device first !'

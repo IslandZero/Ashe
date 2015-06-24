@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   def authenticate_device!
     authenticate_device
     if @current_device.nil?
-      redirect_to new_device_path, alert: 'Please register your device first !'
+      redirect_to new_device_path, alert: t('ashe.please_register_device')
     end
   end
 

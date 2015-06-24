@@ -19,3 +19,4 @@ zh-CN:
     description: '描述信息'
     click_to_install: '点击安装'
     no_provision: '无法安装，没有为该设备提供配给，请等待管理员'
+    please_register_device: '请先注册设备'
