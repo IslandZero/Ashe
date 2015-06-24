@@ -4,9 +4,9 @@
 hr
 
 .row
-  .col-md-5
+  .col-md-6
     - if @is_ua_bad
-      h2.text-danger= t 'ashe.bad_ua'
+      h4.text-danger= t 'ashe.bad_ua'
     - else
       = form_tag create_mobileconfig_devices_path(format: :mobileconfig) do
         .form-group
