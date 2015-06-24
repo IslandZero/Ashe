@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_admin
 
   def validate_useragent!
+    # Skip UA validation if not html
+    return if request.format != 'text/html'
     bad = false
     if request.user_agent.to_s.include?('MicroMessenger')
       bad = true
