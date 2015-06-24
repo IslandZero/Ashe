@@ -24,9 +24,8 @@ hr
         h4.text-danger= t 'ashe.please_register_device'
         br
         = link_to t('ashe.register_device'), new_device_path, class: 'btn btn-primary'
-hr
-
 - if @is_admin
+  hr
   .row
     .col-md-12
       .panel.panel-default
