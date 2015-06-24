@@ -1,0 +1,18 @@
+.page-header
+  h2 Enable Admin
+
+hr
+
+.row
+  .col-md-6
+    - if @is_admin
+      = link_to 'Disable', admin_disable_path, class: 'btn btn-success', method: 'post'
+    - else
+      = form_tag admin_enable_path do
+        .form-group
+          label Admin Token
+          = text_field_tag :admin_token, nil, class: 'form-control'
+        .form-group
+          = submit_tag 'Enable', class: 'btn btn-success'
+.row
+  .col-md-6

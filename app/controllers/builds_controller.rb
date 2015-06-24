@@ -6,6 +6,7 @@ require 'cfpropertylist'
 class BuildsController < ApplicationController
   before_action :validate_useragent!,   only: [:show]
   before_action :authenticate_device!,  only: [:show]
+  before_action :authenticate_admin!,   only: [:new, :create]
 
   def new
   end

@@ -5,6 +5,11 @@ class DevicesController < ApplicationController
 
   before_action :validate_useragent!,   only: [:new]
   before_action :authenticate_device!,  only: [:show]
+  before_action :authenticate_admin!,   only: [:index]
+
+  def index
+    @devices = Device.all.order("id DESC")
+  end
 
   def new
     if @current_device

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :authenticate_device
+  before_action :authenticate_admin
 
   def validate_useragent!
     bad = false
@@ -16,6 +17,19 @@ class ApplicationController < ActionController::Base
     end
     if bad
       render "shared/bad_ua"
+    end
+  end
+
+  def authenticate_admin
+    return if @admin_authenticated == true
+    @is_admin = (session[:is_admin].to_s == 'Y') || ENV['ADMIN_TOKEN'].blank?
+    @admin_authenticated = true
+  end
+
+  def authenticate_admin!
+    authenticate_admin
+    unless @is_admin
+      redirect_to root_path, alert: t('ashe.no_permission')
     end
   end
 

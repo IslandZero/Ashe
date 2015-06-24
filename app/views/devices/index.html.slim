@@ -1,0 +1,19 @@
+.page-header
+  h2= t 'ashe.all_devices'
+
+hr
+
+.row
+  .col-md-6
+    table.table
+      tr
+        td Id
+        td Owner Name
+        td UDID
+        td CreatedAt
+      - @devices.each do |d|
+        tr
+          td= d.id
+          td= d.owner
+          td= d.udid
+          td= time_ago_in_words d.updated_at
