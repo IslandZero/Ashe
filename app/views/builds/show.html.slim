@@ -19,3 +19,36 @@ hr
         = link_to t('ashe.click_to_install'), ipa_install_url(@build), class: 'btn btn-success btn-lg'
       - else
         h4.text-danger= t 'ashe.no_provision'
+- if @is_admin
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading= t 'ashe.devices_both'
+        table.table
+          tr
+            td UDID
+            td Id
+            td Owner
+          - @devices_both.each do |d|
+            tr
+              td= d.udid
+              td= d.id
+              td= d.owner
+        .panel-heading= t 'ashe.devices_missing'
+        table.table
+          tr
+            td UDID
+            td Id
+            td Owner
+          - @devices_missing.each do |d|
+            tr
+              td= d.udid
+              td= d.id
+              td= d.owner
+        .panel-heading= t 'ashe.udids_extra'
+        table.table
+          tr
+            td UDID
+          - @udids_extra.each do |d|
+            tr
+              td= d

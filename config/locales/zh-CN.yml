@@ -23,3 +23,6 @@ zh-CN:
     no_permission: '没有权限'
     all_devices: '全部设备'
     admin: '管理'
+    devices_both: '已知设备'
+    devices_missing: '缺失的设备'
+    udids_extra: '未知设备'

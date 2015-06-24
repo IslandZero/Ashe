@@ -58,5 +58,14 @@ class BuildsController < ApplicationController
     @build = Build.find(params[:id])
     @build_file_url = URI.join(request.url, @build.file_url).to_s
     @can_install = Provision.find_by(build_id: @build.id, udid: @current_device.udid).present?
+
+    if @is_admin
+      provisioned_udids = @build.provisions.map { |pv| pv.udid }
+      @devices_both    = Device.where(udid: provisioned_udids)
+      both_udids       = @devices_both.select(:udid).map { |d| d.udid }
+      @devices_missing = Device.where.not(udid: provisioned_udids)
+      @udids_extra     = provisioned_udids - both_udids
+    end
   end
+
 end

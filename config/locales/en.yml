@@ -23,3 +23,6 @@ en:
     no_permission: 'No permission !'
     all_devices: 'All Devices'
     admin: 'Admin'
+    devices_both: 'Kown Devices'
+    devices_missing: 'Missing Devices'
+    udids_extra: 'Unkown Devices'
