@@ -12,19 +12,20 @@ hr
 
 .row
   .col-md-12.text-center
-    .panel.panel-default
-      - if @current_device.present?
-        - if @can_install
-          - if @is_ua_bad
-            h4.text-danger= t 'ashe.bad_ua'
-          - else
-            = link_to t('ashe.click_to_install'), ipa_install_url(@build), class: 'btn btn-success btn-lg'
+    - if @current_device.present?
+      - if @can_install
+        - if @is_ua_bad
+          h4.text-danger= t 'ashe.bad_ua'
         - else
-          h4.text-danger= t 'ashe.no_provision'
+          = link_to t('ashe.click_to_install'), ipa_install_url(@build), class: 'btn btn-success btn-lg'
       - else
-          h4.text-danger= t 'ashe.please_register_device'
-          br
-          = link_to t('ashe.register_device'), new_device_path, class: 'btn btn-primary'
+        h4.text-danger= t 'ashe.no_provision'
+    - else
+        h4.text-danger= t 'ashe.please_register_device'
+        br
+        = link_to t('ashe.register_device'), new_device_path, class: 'btn btn-primary'
+hr
+
 - if @is_admin
   .row
     .col-md-12
