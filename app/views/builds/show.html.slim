@@ -14,6 +14,5 @@ hr
   .col-md-12.text-center
     - if @can_install
       = link_to 'Click to install', ipa_install_url(@build), class: 'btn btn-success btn-lg'
-      h4.text-danger Make sure to open this page in Safari
     - else
       h4.text-danger Cannot install, no suitable provision file
