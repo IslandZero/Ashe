@@ -15,6 +15,7 @@ gem 'rubyzip'
 gem 'CFPropertyList'
 gem 'slim'
 gem 'slim-rails', '~> 3.0.1'
+gem 'useragent', '~> 0.14.0'
 
 gem 'thin'
 

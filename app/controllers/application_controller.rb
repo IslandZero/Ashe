@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_device
 
+  def validate_useragent
+    user_agent = UserAgent.parse(request.user_agent)
+    puts user_agent
+  end
+
   def authenticate_device
     return if @device_authenticated == true
     if session[:token].blank?

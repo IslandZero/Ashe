@@ -3,6 +3,7 @@ require 'securerandom'
 class DevicesController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:create]
 
+  before_action :validate_useragent,    only: [:new]
   before_action :authenticate_device!,  only: [:show]
 
   def new
