@@ -1,18 +1,24 @@
 Ashe AdHoc Center
 ---
 
-Ashe is a platform for iOS AdHoc distribution.
+Ashe is a platform for iOS AdHoc distribution, specially designed for internal usage for small to middle team.
 
 *  Device UDID based account system
 *  Remote UDID register
 *  Provision file parsing
 *  IPA distribution
 
+## Usage
+
+`SECURE_KEY_BASE=???????? ADMIN_TOKEN=?????? RAILS_ENV=production rails s`
+
+Open `/admin` and input the `ADMIN_TOKEN` you used to enable admin features.
+
 ## LICENSE
 
 The MIT License (MIT)
 
-Copyright (c) 2015 YANKE Guo(Ryan)
+Copyright (c) 2015 YANKE Guo (Ryan)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
