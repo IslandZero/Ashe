@@ -1,12 +1,15 @@
+require 'securerandom'
+
 class Device < ActiveRecord::Base
   def self.create_from_plist(plist, owner = nil)
-    d = self.find_or_create_by(udid: plist['UDID'])
-    d.update({
+    device = self.find_or_create_by(udid: plist['UDID'])
+    device.update({
       version: plist['VERSION'],
       serial:  plist['SERIAL'],
       product: plist['PRODUCT'],
-      owner:   owner
+      owner:   owner,
+      token:   SecureRandom.urlsafe_base64(32)
     })
-    d
+    device
   end
 end

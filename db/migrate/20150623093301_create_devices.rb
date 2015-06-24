@@ -4,7 +4,8 @@ class CreateDevices < ActiveRecord::Migration
       t.string :owner
       t.string :product
       t.string :serial
-      t.string :udid,  null: false, index: true
+      t.string :udid,  null: false, index: true, unique: true
+      t.string :token, null: false, index: true, unique: true
       t.string :version
 
       t.timestamps null: false

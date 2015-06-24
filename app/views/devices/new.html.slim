@@ -1,5 +1,5 @@
 .page-header
-  h2 Register UDID
+  h2 Register Device
 
 hr
 
@@ -7,7 +7,7 @@ hr
   .col-md-5
     = form_tag create_mobileconfig_devices_path(format: :mobileconfig) do
       .form-group
-        label Owner
+        label Owner Name
         = text_field_tag :owner, nil, class: 'form-control'
       .form-group.text-center
-        = submit_tag "Register UDID", class: 'btn btn-success'
+        = submit_tag "Register Device", class: 'btn btn-success'

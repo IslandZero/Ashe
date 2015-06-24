@@ -42,11 +42,13 @@ ActiveRecord::Schema.define(version: 20150623093301) do
     t.string   "product"
     t.string   "serial"
     t.string   "udid",       null: false
+    t.string   "token",      null: false
     t.string   "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "devices", ["token"], name: "index_devices_on_token"
   add_index "devices", ["udid"], name: "index_devices_on_udid"
 
 end
