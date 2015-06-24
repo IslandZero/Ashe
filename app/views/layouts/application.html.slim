@@ -18,11 +18,11 @@ html
           a.navbar-brand href=root_path Ashe
         .collapse.navbar-collapse#main-navbar
           ul.nav.navbar-nav
-            = li_link "Upload", new_build_path
+            = li_link t('ashe.upload'), new_build_path
             - if @current_device
-              = li_link "My Device", device_path(@current_device)
+              = li_link t('ashe.my_device'), device_path(@current_device)
             - else
-              = li_link "Register Device", new_device_path
+              = li_link t('ashe.register_device'), new_device_path
     - if flash.alert
       .container
         .row

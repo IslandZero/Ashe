@@ -13,6 +13,6 @@ hr
 .row
   .col-md-12.text-center
     - if @can_install
-      = link_to 'Click to install', ipa_install_url(@build), class: 'btn btn-success btn-lg'
+      = link_to t('ashe.click_to_install'), ipa_install_url(@build), class: 'btn btn-success btn-lg'
     - else
-      h4.text-danger Cannot install, no suitable provision file
+      h4.text-danger= t 'ashe.no_provision'
