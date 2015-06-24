@@ -5,9 +5,12 @@ hr
 
 .row
   .col-md-5
-    = form_tag create_mobileconfig_devices_path(format: :mobileconfig) do
-      .form-group
-        label=t 'ashe.owner_name'
-        = text_field_tag :owner, nil, class: 'form-control'
-      .form-group.text-center
-        = submit_tag t("ashe.register_device"), class: 'btn btn-success'
+    - if @is_ua_bad
+      h2.text-danger= t 'ashe.bad_ua'
+    - else
+      = form_tag create_mobileconfig_devices_path(format: :mobileconfig) do
+        .form-group
+          label=t 'ashe.owner_name'
+          = text_field_tag :owner, nil, class: 'form-control'
+        .form-group.text-center
+          = submit_tag t("ashe.register_device"), class: 'btn btn-success'

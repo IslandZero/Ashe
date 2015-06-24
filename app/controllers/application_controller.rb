@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_device
   before_action :authenticate_admin
 
-  def validate_useragent!
+  def validate_useragent
     # Skip UA validation if not html
     return if request.format != 'text/html'
     bad = false
@@ -17,9 +17,7 @@ class ApplicationController < ActionController::Base
       bad_platform= !['iPhone', 'iPad', 'iPod'].include?(ua.platform)
       bad = bad_browser || bad_platform
     end
-    if bad
-      render "shared/bad_ua"
-    end
+    @is_ua_bad = bad
   end
 
   def authenticate_admin

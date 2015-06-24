@@ -12,7 +12,10 @@ hr
 
 .row
   .col-md-12.text-center
-    - if @can_install
-      = link_to t('ashe.click_to_install'), ipa_install_url(@build), class: 'btn btn-success btn-lg'
+    - if @is_ua_bad
+      h2.text-danger= t 'ashe.bad_ua'
     - else
-      h4.text-danger= t 'ashe.no_provision'
+      - if @can_install
+        = link_to t('ashe.click_to_install'), ipa_install_url(@build), class: 'btn btn-success btn-lg'
+      - else
+        h4.text-danger= t 'ashe.no_provision'
