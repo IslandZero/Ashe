@@ -19,7 +19,9 @@ html
         .collapse.navbar-collapse#main-navbar
           ul.nav.navbar-nav
             = li_link "Upload", new_build_path
-            - unless @current_device
+            - if @current_device
+              = li_link "My Device", device_path(@current_device)
+            - else
               = li_link "Register Device", new_device_path
     - if flash.alert
       .container
